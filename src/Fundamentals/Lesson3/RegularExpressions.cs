@@ -5,18 +5,18 @@ using System.Text.RegularExpressions;
 
 namespace Fundamentals.Lesson3
 {
-    internal static class RegularExpressions
+    public static class RegularExpressions
     {
-        private const string _Pattern = "[+-*/]+?";
+        private const string _Pattern = @"([+\-*/])";
 
-        public static void RegexIsMatch(string input = "1/2")
+        public static bool RegexIsMatch(string input = "1/2")
         {
-            var isMatch = Regex.IsMatch(input, _Pattern);
-            var matchedString = Regex.Match(input, _Pattern);
-
-            Regex.
+            return Regex.IsMatch(input, _Pattern, RegexOptions.Multiline);
         }
 
-
+        public static string[] SplitByRegexMatched(string input = "1/2")
+        {
+            return Regex.Split(input, _Pattern);
+        }
     }
 }

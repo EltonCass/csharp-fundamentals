@@ -3,7 +3,7 @@
 
 namespace Fundamentals.Lesson4
 {
-    internal static class Dynamic
+    public static class Dynamic
     {
         public static void UseAsString(dynamic text)
         {

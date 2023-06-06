@@ -111,7 +111,7 @@ static void ExecuteLesson3()
     StringsManagement.CheckStringsAreTheSame("C# introduction", "C# INTRODUCTION");
     StringsManagement.CheckStringsAreEqual("C# introduction", "C# INTRODUCTION");
 
-    StringsManagement.RegularExpressions();
+    RegularExpressions.RegexIsMatch();
 }
 
 static void ExecuteLesson4()
@@ -119,7 +119,7 @@ static void ExecuteLesson4()
     PrintLessonArtIntro(4);
     // Debug Code
     Arrays.ArrayOperations();
-    Arrays.ModifyArray();
+    Arrays.ModifyArray(100, 30, -4);
     Enums.UsingEnums();
     UsingObjects.PrintInput(DateTime.Now);
     UsingObjects.PrintInputs(new object[] { 2.13, 42.5, 44.2 });

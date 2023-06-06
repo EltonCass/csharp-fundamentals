@@ -5,8 +5,8 @@ namespace Fundamentals.Lesson2
 {
     internal static class Constants
     {
-        internal const double Pi = 3.1416;
-        internal static double Gravity = 9.81;
+        public const double Pi = 3.1416;
+        public static double Gravity = 9.81;
 
         static void ChangeConstant()
         {
