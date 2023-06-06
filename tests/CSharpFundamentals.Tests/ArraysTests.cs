@@ -40,9 +40,12 @@ namespace Fundamentals
             Arrays.ModifyArray(appendedValue, prependedValue, inBetweenValue);
 
             //Assert
-            Assert.Contains(appendedValue, currentArray);
-            Assert.Contains(prependedValue, currentArray);
-            Assert.Contains(inBetweenValue, currentArray);
+            Assert.Multiple(() =>
+            {
+                Assert.Contains(appendedValue, currentArray);
+                Assert.Contains(prependedValue, currentArray);
+                Assert.Contains(inBetweenValue, currentArray);
+            });
         }
     }
 }
