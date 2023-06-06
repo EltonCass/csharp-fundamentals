@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Copyright (c) 2023 Elton Cassas. All rights reserved.
+// See LICENSE.txt
+
 
 namespace Fundamentals.Lesson5
 {
