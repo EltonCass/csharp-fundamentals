@@ -29,10 +29,8 @@ namespace Fundamentals.Lesson2
             {
                 return 1;
             }
-            else
-            {
-                return n * Factorial(n - 1);
-            }
+
+            return n * Factorial(n - 1);
         }
 
         public static void DisplayYearlyIncome(int rawMonthlyIncome, double tax = 0.12)

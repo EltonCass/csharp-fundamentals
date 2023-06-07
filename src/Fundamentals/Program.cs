@@ -8,6 +8,7 @@ global using Fundamentals.Lesson5;
 global using Fundamentals.Lesson6;
 global using Fundamentals.Lesson7;
 global using Fundamentals.Lesson8;
+using Dumpify;
 
 using var cts = new CancellationTokenSource();
 
@@ -24,46 +25,10 @@ Console.CancelKeyPress += (s, e) =>
 
 Console.OutputEncoding = System.Text.Encoding.Unicode;
 
-// ## Comments
-// Single Line Comment
-
-/*  This 
-    is 
-    a 
-    Multi 
-    Line 
-    Comment
-*/
-
 // ## Statements
 PrintLessonArtIntro(2);
-int year; // Declaration
-year = 2023; // Assignment
-//year = "2023"; // This will result in error
 
-int age = 29; // Declaration and assignment
-
-// ### Constants
-double constantPi = Fundamentals.Lesson2.Constants.Pi;
-// Syntaxis.Constants.Pi = 3;
-double constantGravity = Fundamentals.Lesson2.Constants.Gravity;
-Fundamentals.Lesson2.Constants.Gravity = 9.72;
-
-// ## Operations
-Console.WriteLine("Post adding");
-Console.WriteLine(Constants.Gravity++);
-Console.WriteLine("Pre adding");
-Console.WriteLine(++Constants.Gravity);
-Console.WriteLine("Is Gravity greater than 10?");
-Console.WriteLine(Constants.Gravity > 10);
-
-// ## Implicit typing
-var name = "Robert White";
-//name = 11; // This will result in error since the data type is a string
-name = "Robert Borh";
-Console.WriteLine(name);
-
-//ExecuteLesson2();
+ExecuteLesson2();
 //ExecuteLesson3();
 //ExecuteLesson4();
 //ExecuteLesson5();
