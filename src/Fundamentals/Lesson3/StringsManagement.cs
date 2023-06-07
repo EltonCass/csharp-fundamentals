@@ -28,13 +28,16 @@ namespace Fundamentals.Lesson3
             // Using string interpolation *
             Console.WriteLine($"😢 Fact #{randomNumber}: {randomString}");
             // Using string interpolation with verbatim
-            Console.WriteLine($@"😅 Fact #{randomNumber}: {randomString}");
+            Console.WriteLine($@"
+//////
+😅 Fact #{randomNumber}: {randomString}
+//////");
         }
 
         public static void CheckStringsAreTheSame(string a, string b)
         {
-            //if (a.ToLower() == b.ToLower())
-            if (a == b)
+            if (a.ToLower() == b.ToLower())
+            //if (a == b)
             {
                 Console.WriteLine("Strings are equal");
             }
@@ -46,8 +49,8 @@ namespace Fundamentals.Lesson3
 
         public static void CheckStringsAreEqual(string a, string b)
         {
-            //if (a.Equals(b, StringComparison.OrdinalIgnoreCase))
-            if (a.Equals(b)) 
+            if (a.Equals(b, StringComparison.OrdinalIgnoreCase))
+            //if (a.Equals(b)) 
             {
                 Console.WriteLine("Strings are equal");
             }
@@ -59,6 +62,8 @@ namespace Fundamentals.Lesson3
 
         public static void CompareStrings(string a, string b)
         {
+            // a : Hello
+            // b : Hello
             //if (string.CompareOrdinal(a, b) == 0)
             if (string.Compare(a, b) == 0) 
             {
@@ -84,7 +89,7 @@ namespace Fundamentals.Lesson3
             var currentBalance = decimal.Parse(currentBalanceText);
 
             // Using tryParse
-            //var parseSuccess = bool.TryParse(enabledText, out bool enabled);
+            var parseSuccess = bool.TryParse(enabledText, out bool enabled2);
         }
     }
 }

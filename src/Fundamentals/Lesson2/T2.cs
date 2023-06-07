@@ -7,15 +7,15 @@ namespace Fundamentals.Lesson2
     {
         private static Dictionary<int, int> _memo = new Dictionary<int, int>();
 
-        internal static int Fibonacci(int n)
-        {
-            if (n <= 1)
-            {
-                return n;
-            }
+        //internal static int Fibonacci(int n)
+        //{
+        //    if (n <= 1)
+        //    {
+        //        return n;
+        //    }
 
-            return Fibonacci(n - 1) + Fibonacci(n - 2);
-        }
+        //    return Fibonacci(n - 1) + Fibonacci(n - 2);
+        //}
 
         internal static int MemoFibonacci(int n)
         {
@@ -31,7 +31,7 @@ namespace Fundamentals.Lesson2
             }
             else
             {
-                result = Fibonacci(n - 1) + Fibonacci(n - 2);
+                result = MemoFibonacci(n - 1) + MemoFibonacci(n - 2);
             }
 
             _memo[n] = result;

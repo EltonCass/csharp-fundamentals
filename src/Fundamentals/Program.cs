@@ -28,8 +28,8 @@ Console.OutputEncoding = System.Text.Encoding.Unicode;
 // ## Statements
 PrintLessonArtIntro(2);
 
-ExecuteLesson2();
-//ExecuteLesson3();
+//ExecuteLesson2();
+ExecuteLesson3();
 //ExecuteLesson4();
 //ExecuteLesson5();
 //ExecuteLesson6();
