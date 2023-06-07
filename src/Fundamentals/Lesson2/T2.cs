@@ -3,7 +3,7 @@
 
 namespace Fundamentals.Lesson2
 {
-    internal class T2
+    public class T2
     {
         private static Dictionary<int, int> _memo = new Dictionary<int, int>();
 
@@ -17,7 +17,7 @@ namespace Fundamentals.Lesson2
         //    return Fibonacci(n - 1) + Fibonacci(n - 2);
         //}
 
-        internal static int MemoFibonacci(int n)
+        public static int MemoFibonacci(int n)
         {
             if (_memo.ContainsKey(n))
             {
