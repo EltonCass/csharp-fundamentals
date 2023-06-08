@@ -9,7 +9,8 @@ namespace Benchmarks
     {
         static void Main(string[] _)
         {
-            BenchmarkRunner.Run<SplitStringBenchmarks>();
+            // BenchmarkRunner.Run<SplitStringBenchmarks>();
+            BenchmarkRunner.Run<FibonacciPerformance>();
         }
     }
 }

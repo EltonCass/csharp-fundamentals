@@ -1,24 +1,18 @@
 ﻿// Copyright (c) 2023 Elton Cassas. All rights reserved.
 // See LICENSE.txt
 
+using Dumpify;
+
 namespace Fundamentals.Lesson5
 {
-    internal static class Converters
+    internal static class Conversions
     {
         public static void ConvertTo()
         {
             var number = Convert.ToInt64("23");
-        }
-
-        public static void UserDefinedConversions()
-        {
-            var d = new Digit(7);
-
-            byte number = d;
-            Console.WriteLine(number);  // output: 7
-
-            Digit digit = (Digit)number;
-            Console.WriteLine(digit);  // output: 7
+            number.Dump();
+            decimal @decimal = Convert.ToDecimal("23.4545");
+            @decimal.Dump();
         }
 
         public static void SafeParse(string value, Types type)
@@ -38,6 +32,17 @@ namespace Fundamentals.Lesson5
                     break;
             }
         }
+
+        public static void UserDefinedConversions()
+        {
+            var d = new Digit(7);
+
+            byte number = d;
+            number.Dump(); // output: 7
+
+            Digit digit = (Digit)number;
+            digit.Dump(); // output: 7
+        }
     }
 
     enum Types
@@ -49,7 +54,7 @@ namespace Fundamentals.Lesson5
 
     public readonly struct Digit
     {
-        private readonly byte digit;
+        private readonly byte _digit;
 
         public Digit(byte digit)
         {
@@ -57,12 +62,12 @@ namespace Fundamentals.Lesson5
             {
                 throw new ArgumentOutOfRangeException(nameof(digit), "Digit cannot be greater than nine.");
             }
-            this.digit = digit;
+            _digit = digit;
         }
 
-        public static implicit operator byte(Digit d) => d.digit;
+        public static implicit operator byte(Digit d) => d._digit;
         public static explicit operator Digit(byte b) => new Digit(b);
 
-        public override string ToString() => $"{digit}";
+        public override string ToString() => $"{_digit}";
     }
 }

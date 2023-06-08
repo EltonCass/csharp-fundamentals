@@ -3,21 +3,21 @@
 
 namespace Fundamentals.Lesson2
 {
-    internal class T2
+    public class T2
     {
         private static Dictionary<int, int> _memo = new Dictionary<int, int>();
 
-        internal static int Fibonacci(int n)
-        {
-            if (n <= 1)
-            {
-                return n;
-            }
+        //internal static int Fibonacci(int n)
+        //{
+        //    if (n <= 1)
+        //    {
+        //        return n;
+        //    }
 
-            return Fibonacci(n - 1) + Fibonacci(n - 2);
-        }
+        //    return Fibonacci(n - 1) + Fibonacci(n - 2);
+        //}
 
-        internal static int MemoFibonacci(int n)
+        public static int MemoFibonacci(int n)
         {
             if (_memo.ContainsKey(n))
             {
@@ -31,7 +31,7 @@ namespace Fundamentals.Lesson2
             }
             else
             {
-                result = Fibonacci(n - 1) + Fibonacci(n - 2);
+                result = MemoFibonacci(n - 1) + MemoFibonacci(n - 2);
             }
 
             _memo[n] = result;
