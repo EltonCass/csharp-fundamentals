@@ -11,7 +11,7 @@ namespace Benchmarks
     [RankColumn]
     public class FibonacciPerformance
     {
-        [Params(1, 10, 1000)]
+        [Params(1, 10, 50)]
         public int Position { get; set; }
 
         [Benchmark]
