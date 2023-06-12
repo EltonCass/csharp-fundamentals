@@ -1,6 +1,8 @@
 ﻿// Copyright (c) 2023  Elton Cassas. All rights reserved.
 // See LICENSE.txt
 
+using Dumpify;
+
 namespace Fundamentals.Lesson4
 {
     internal static class UsingObjects
@@ -10,6 +12,8 @@ namespace Fundamentals.Lesson4
             Console.WriteLine($"The input is: {input}");
             Console.WriteLine($"The hashcode is: {input.GetHashCode()}");
             Console.WriteLine($"The type is: {input.GetType()}");
+
+            input.Dump();
         }
 
         public static void PrintInputs(object[] inputs) 

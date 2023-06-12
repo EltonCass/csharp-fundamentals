@@ -1,6 +1,8 @@
 ﻿// Copyright (c) 2023  Elton Cassas. All rights reserved.
 // See LICENSE.txt
 
+using Dumpify;
+
 namespace Fundamentals.Lesson4
 {
     internal class Enums
@@ -14,6 +16,8 @@ namespace Fundamentals.Lesson4
             var definedOptionA =Enum.IsDefined(typeof(LocationTypes), 4);
             var definedOptionB = Enum.IsDefined(typeof(LocationTypes), 0);
             var definedOptionC = Enum.IsDefined(typeof(LocationTypes), "Campus");
+
+            LocationTypes.Campus.Dump();
         }
     }
 

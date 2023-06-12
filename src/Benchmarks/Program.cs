@@ -2,6 +2,7 @@
 // See LICENSE.txt
 
 using BenchmarkDotNet.Running;
+using Fundamentals.Lesson6;
 
 namespace Benchmarks
 {
@@ -9,8 +10,15 @@ namespace Benchmarks
     {
         static void Main(string[] _)
         {
-            // BenchmarkRunner.Run<SplitStringBenchmarks>();
-            BenchmarkRunner.Run<FibonacciPerformance>();
+            BenchmarkRunner.Run<SplitStringBenchmarks>();
+            //BenchmarkRunner.Run<FibonacciPerformance>();
+
+            var cat = new Animal();
+            var dog = new Dog();
+
+            //var catAge = cat.Age;
+            //cat.Grow(3);
+            dog.UpdateAge(5);
         }
     }
 }
