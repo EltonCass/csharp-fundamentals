@@ -49,7 +49,7 @@ namespace Benchmarks
         {
             if (position <= 1)
             {
-                return Position;
+                return position;
             }
 
             return Fibonacci(position - 1) + Fibonacci(position - 2);

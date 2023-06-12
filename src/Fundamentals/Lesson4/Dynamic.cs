@@ -19,8 +19,7 @@ namespace Fundamentals.Lesson4
 
         //public static void PrintMe(object value)
         //{
-        // dynamic and object both use the same structure but different resolution times,
-        // that is why this does not count as overload
+            
         //    Console.WriteLine($"PrintMe -object- called with value: {value}");
         //}
     }

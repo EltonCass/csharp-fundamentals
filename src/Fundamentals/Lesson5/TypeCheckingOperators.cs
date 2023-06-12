@@ -2,6 +2,7 @@
 // See LICENSE.txt
 
 using Dumpify;
+using Fundamentals.Lesson6;
 
 public static class TypeCheckingOperators
 {
@@ -24,8 +25,8 @@ public static class TypeCheckingOperators
         var dog = new Dog();
         $"Is Dog an animal {(dog is Animal)}".Dump();
 
-        object stringObj = "Example";
-        $"Is {nameof(stringObj)} a string? {stringObj is string}".Dump();
+        object stringExampleObj = "Example";
+        $"Is {nameof(stringExampleObj)} a string? {stringExampleObj is string}".Dump();
 
         object obj = "1";
         var text = obj as string;
@@ -38,10 +39,4 @@ public static class TypeCheckingOperators
             "The object is not a string.".Dump();
         }
     }
-
-    public class Animal
-    { }
-
-    public class Dog : Animal
-    { }
 }
