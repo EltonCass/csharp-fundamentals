@@ -33,7 +33,7 @@ internal static class NullableObject
         }
         else
         {
-            return new NullCustomer();                                                                                                                               er();
+            return new NullCustomer();
         }
     }
 }
