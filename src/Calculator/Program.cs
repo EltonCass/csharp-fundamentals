@@ -68,7 +68,7 @@ static double EvaluateExpression(string expression)
                     subExpression = expression[breakpoint..];
                 }
                 currentNumber = EvaluateExpression(subExpression);
-                currentDecimal = 0;
+                isDecimal = false;
                 lastOperator = (lastOperator == '-') ? '+' : lastOperator;
                 i = expressionLength;
             }
@@ -76,7 +76,7 @@ static double EvaluateExpression(string expression)
             {
                 ApplyOperator(ref isDecimal, ref result, ref currentNumber, ref currentDecimal, lastOperator);
                 lastOperator = c;
-                operatorCounter = (i != 0) ? operatorCounter + 1 : operatorCounter;
+                operatorCounter = (i != 0 && c != '*' && c != '/') ? operatorCounter + 1 : operatorCounter;
                 breakpoint = i;
             }
         }
@@ -91,8 +91,7 @@ static void ApplyOperator(ref bool isDecimal, ref double result, ref double curr
 {
     if (isDecimal)
     {
-        currentNumber = Convert.ToDouble(currentNumber + "." + currentDecimal);
-        currentDecimal = 0;
+        double.TryParse(currentNumber + "." + currentDecimal, out currentNumber);
         isDecimal = false;
     }
 
@@ -112,4 +111,5 @@ static void ApplyOperator(ref bool isDecimal, ref double result, ref double curr
     }
 
     currentNumber = 0;
+    currentDecimal = 0;
 }
