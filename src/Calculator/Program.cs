@@ -34,6 +34,7 @@ static double EvaluateExpression(string expression)
     int breakpoint = 0;
     int operatorCounter = 0;
     bool isDecimal = false;
+    string subExpression;
 
     int expressionLength = expression.Length;
     for (int i = 0; i < expressionLength; i++)
@@ -58,10 +59,13 @@ static double EvaluateExpression(string expression)
         {
             if ((c == '*' || c == '/') && operatorCounter > 0)
             {
-                var subExpression = expression.Substring(breakpoint);
-                if (subExpression[0] == '*' || subExpression[0] == '/')
+                if (expression[breakpoint] == '*' || expression[breakpoint] == '/')
                 {
-                    subExpression = subExpression.Substring(1);
+                    subExpression = expression[(breakpoint + 1)..];
+                }
+                else
+                {
+                    subExpression = expression[breakpoint..];
                 }
                 currentNumber = EvaluateExpression(subExpression);
                 currentDecimal = 0;
