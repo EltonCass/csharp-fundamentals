@@ -16,15 +16,16 @@ namespace init
 
         public static void SaveCalculationHistoryItem(string? input, decimal result, string? description)
         {
+            int limitOfHistoryItemsSaved = 2;
             List<HistoryItem> historyItems = GetHistoryItemsFromJson() ?? new List<HistoryItem>();
-            if(historyItems.Count() == 2) historyItems.RemoveAt(0);
+            if(historyItems.Count == limitOfHistoryItemsSaved) historyItems.RemoveAt(0);
             historyItems.Add(
                 new HistoryItem
                 {
-                    expression = input,
-                    result = Math.Round(result, 2),
-                    description = description,
-                    createdDatetime = DateTime.Now
+                    Expression = input,
+                    Result = Math.Round(result, 2),
+                    Description = description,
+                    CreatedDatetime = DateTime.Now
                 });
             string jsonString = JsonSerializer.Serialize(historyItems);
             File.WriteAllText(_fileName, jsonString);
@@ -36,7 +37,7 @@ namespace init
             Console.WriteLine("PREVIOUS OPERATION EXPRESSION:");
             var table = new Table("Input Expression", "Result", "Description", "Created Date");
             table.Config = TableConfiguration.UnicodeAlt();
-            historyItems.ForEach(item => table.AddRow(item.expression, item.result, item.description, item.createdDatetime));
+            historyItems.ForEach(item => table.AddRow(item.Expression, item.Result, item.Description, item.CreatedDatetime));
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(table);
             Console.ResetColor();

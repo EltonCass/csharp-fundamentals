@@ -28,9 +28,9 @@ namespace init
 
         public static string RemoveLetterFromAritmeticExpression(string input)
         {
+            var regex = new Regex(@"[a-zA-Z\s\?']");
             while (true)
             {
-                var regex = new Regex(@"[a-zA-Z\s\?']");
                 if (regex.IsMatch(input))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;

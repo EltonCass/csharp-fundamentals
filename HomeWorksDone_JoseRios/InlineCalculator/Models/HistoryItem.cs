@@ -8,9 +8,9 @@ namespace init.Models
 {
     public class HistoryItem
     {
-        public string? expression { get; set; }
-        public decimal result { get; set; }
-        public string? description { get; set; }
-        public DateTime createdDatetime { get; set; }
+        public string? Expression { get; set; }
+        public decimal Result { get; set; }
+        public string? Description { get; set; }
+        public DateTime CreatedDatetime { get; set; }
     }
 }
