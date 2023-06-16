@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 
 
-namespace init
+namespace init.Ctrls
 {
     public class HistoryCtrl
     {
@@ -17,8 +17,8 @@ namespace init
         public static void SaveCalculationHistoryItem(string? input, decimal result, string? description)
         {
             int limitOfHistoryItemsSaved = 2;
-            List<HistoryItem> historyItems = GetHistoryItemsFromJson() ?? new List<HistoryItem>();
-            if(historyItems.Count == limitOfHistoryItemsSaved) historyItems.RemoveAt(0);
+            List<HistoryItem> historyItems = GetHistoryItemsFromJson();
+            if (historyItems.Count == limitOfHistoryItemsSaved) historyItems.RemoveAt(0);
             historyItems.Add(
                 new HistoryItem
                 {
@@ -33,7 +33,7 @@ namespace init
 
         public static void PrintCalcuationHistoryTable()
         {
-            List<HistoryItem> historyItems = GetHistoryItemsFromJson() ?? new List<HistoryItem>();
+            List<HistoryItem> historyItems = GetHistoryItemsFromJson();
             Console.WriteLine("PREVIOUS OPERATION EXPRESSION:");
             var table = new Table("Input Expression", "Result", "Description", "Created Date");
             table.Config = TableConfiguration.UnicodeAlt();
@@ -43,14 +43,14 @@ namespace init
             Console.ResetColor();
         }
 
-        private static List<HistoryItem>? GetHistoryItemsFromJson()
+        private static List<HistoryItem> GetHistoryItemsFromJson()
         {
             string jsonStr = "";
             using (StreamReader myJsonFile = new StreamReader(_fileName))
             {
                 jsonStr = myJsonFile.ReadToEnd();
             }
-            List<HistoryItem> historyItems = JsonSerializer.Deserialize<List<HistoryItem>>(jsonStr);
+            List<HistoryItem> historyItems = JsonSerializer.Deserialize<List<HistoryItem>>(jsonStr) ?? new List<HistoryItem>();
             return historyItems;
         }
     }

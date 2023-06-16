@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace init
+namespace init.Ctrls
 {
     public class CalculatorCtrl
     {

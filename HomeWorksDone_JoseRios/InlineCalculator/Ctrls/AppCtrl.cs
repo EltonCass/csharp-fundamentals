@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using init.Models;
+using init.Utils;
 
-namespace init
+namespace init.Ctrls
 {
     public class AppCtrl
     {
@@ -36,7 +37,7 @@ namespace init
             var str = "";
             var reg = new Regex(@"[+/\-*]");
 
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 0; i < input?.Length; i++)
             {
                 if (reg.IsMatch(input[i].ToString()) && i != 0)
                 {
