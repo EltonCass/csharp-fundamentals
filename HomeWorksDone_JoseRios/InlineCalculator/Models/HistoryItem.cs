@@ -12,5 +12,15 @@ namespace init.Models
         public decimal Result { get; set; }
         public string? Description { get; set; }
         public DateTime CreatedDatetime { get; set; }
+
+        public HistoryItem(string expr, decimal res, string? desc)
+        {
+            Expression = expr;
+            Result = res;
+            Description = desc;
+            CreatedDatetime = DateTime.Now;
+        }
+        
+        public HistoryItem() { }
     }
 }

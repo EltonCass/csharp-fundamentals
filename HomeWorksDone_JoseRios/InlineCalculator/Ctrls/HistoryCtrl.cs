@@ -14,19 +14,12 @@ namespace init.Ctrls
     {
         private static readonly string _fileName = "C:\\Users\\User\\Documents\\WORK\\CS-Course\\csharp-fundamentals\\HomeWorksDone_JoseRios\\InlineCalculator\\history.json";
 
-        public static void SaveCalculationHistoryItem(string? input, decimal result, string? description)
+        public static void SaveCalculationHistoryItem(HistoryItem historyItem)
         {
             int limitOfHistoryItemsSaved = 2;
             List<HistoryItem> historyItems = GetHistoryItemsFromJson();
             if (historyItems.Count == limitOfHistoryItemsSaved) historyItems.RemoveAt(0);
-            historyItems.Add(
-                new HistoryItem
-                {
-                    Expression = input,
-                    Result = Math.Round(result, 2),
-                    Description = description,
-                    CreatedDatetime = DateTime.Now
-                });
+            historyItems.Add(historyItem);
             string jsonString = JsonSerializer.Serialize(historyItems);
             File.WriteAllText(_fileName, jsonString);
         }

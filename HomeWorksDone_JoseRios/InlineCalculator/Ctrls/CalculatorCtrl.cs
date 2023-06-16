@@ -8,58 +8,58 @@ namespace init.Ctrls
 {
     public class CalculatorCtrl
     {
-        public static List<object>? ExecuteAndSaveInlineAritmeticMaths(List<object> input, string? inputExpression, string? inputDescription)
+        public static decimal CalculateInlineAritmeticMath(List<object> expressionAsObjectList)
         {
-            if (input.Contains('*'))
+            decimal finalResult = 0;
+            while (finalResult == 0)
             {
-                var refIndex = input.IndexOf('*') - 1;
-                var a = (decimal)input[refIndex];
-                var b = (decimal)input[refIndex + 2];
-                var result = a * b;
-                input.RemoveAt(refIndex);
-                input.RemoveAt(refIndex);
-                input[refIndex] = result;
-                return input;
+                if (expressionAsObjectList.Contains('*'))
+                {
+                    var refIndex = expressionAsObjectList.IndexOf('*') - 1;
+                    var a = (decimal)expressionAsObjectList[refIndex];
+                    var b = (decimal)expressionAsObjectList[refIndex + 2];
+                    var result = a * b;
+                    expressionAsObjectList.RemoveAt(refIndex);
+                    expressionAsObjectList.RemoveAt(refIndex);
+                    expressionAsObjectList[refIndex] = result;
+                }
+                else if (expressionAsObjectList.Contains('/'))
+                {
+                    var refIndex = expressionAsObjectList.IndexOf('/') - 1;
+                    var a = (decimal)expressionAsObjectList[refIndex];
+                    var b = (decimal)expressionAsObjectList[refIndex + 2];
+                    var result = a / b;
+                    expressionAsObjectList.RemoveAt(refIndex);
+                    expressionAsObjectList.RemoveAt(refIndex);
+                    expressionAsObjectList[refIndex] = result;
+                }
+                else if (expressionAsObjectList.Contains('-'))
+                {
+                    var refIndex = expressionAsObjectList.IndexOf('-') - 1;
+                    var a = (decimal)expressionAsObjectList[refIndex];
+                    var b = (decimal)expressionAsObjectList[refIndex + 2];
+                    var result = a - b;
+                    expressionAsObjectList.RemoveAt(refIndex);
+                    expressionAsObjectList.RemoveAt(refIndex);
+                    expressionAsObjectList[refIndex] = result;
+                }
+                else if (expressionAsObjectList.Contains('+'))
+                {
+                    var refIndex = expressionAsObjectList.IndexOf('+') - 1;
+                    var a = (decimal)expressionAsObjectList[refIndex];
+                    var b = (decimal)expressionAsObjectList[refIndex + 2];
+                    var result = a + b;
+                    expressionAsObjectList.RemoveAt(refIndex);
+                    expressionAsObjectList.RemoveAt(refIndex);
+                    expressionAsObjectList[refIndex] = result;
+                }
+                else
+                {
+                    finalResult = Math.Round((decimal)expressionAsObjectList[0], 2);
+                    Console.WriteLine("Result: " + finalResult );
+                }
             }
-            else if (input.Contains('/'))
-            {
-                var refIndex = input.IndexOf('/') - 1;
-                var a = (decimal)input[refIndex];
-                var b = (decimal)input[refIndex + 2];
-                var result = a / b;
-                input.RemoveAt(refIndex);
-                input.RemoveAt(refIndex);
-                input[refIndex] = result;
-                return input;
-            }
-            else if (input.Contains('-'))
-            {
-                var refIndex = input.IndexOf('-') - 1;
-                var a = (decimal)input[refIndex];
-                var b = (decimal)input[refIndex + 2];
-                var result = a - b;
-                input.RemoveAt(refIndex);
-                input.RemoveAt(refIndex);
-                input[refIndex] = result;
-                return input;
-            }
-            else if (input.Contains('+'))
-            {
-                var refIndex = input.IndexOf('+') - 1;
-                var a = (decimal)input[refIndex];
-                var b = (decimal)input[refIndex + 2];
-                var result = a + b;
-                input.RemoveAt(refIndex);
-                input.RemoveAt(refIndex);
-                input[refIndex] = result;
-                return input;
-            }
-            else
-            {
-                Console.WriteLine("Result: " + Math.Round((decimal)input[0], 2));
-                HistoryCtrl.SaveCalculationHistoryItem(inputExpression, (decimal)input[0], inputDescription);
-                return null;
-            }
+            return finalResult;
         }
     }
 }

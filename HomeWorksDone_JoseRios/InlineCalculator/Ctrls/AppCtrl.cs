@@ -25,10 +25,9 @@ namespace init.Ctrls
             inputExpression = InputValidator.RemoveLetterFromAritmeticExpression(inputExpression);
             Console.WriteLine($"Please add a description for the expression '{inputExpression}'");
             string? inputDescription = Console.ReadLine();
-            List<object>? objs = TurnIntoAritmeticObjectList(inputExpression);
-
-            while (objs != null)
-                objs = CalculatorCtrl.ExecuteAndSaveInlineAritmeticMaths(objs, inputExpression, inputDescription);
+            List<object>? expressionAsObjectList = TurnIntoAritmeticObjectList(inputExpression);
+            decimal result = CalculatorCtrl.CalculateInlineAritmeticMath(expressionAsObjectList);
+            HistoryCtrl.SaveCalculationHistoryItem(new HistoryItem(inputExpression, result, inputDescription));
         }
 
         public static List<object> TurnIntoAritmeticObjectList(string? input)
