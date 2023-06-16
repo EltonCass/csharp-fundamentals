@@ -8,10 +8,10 @@ namespace init.Ctrls
 {
     public class CalculatorCtrl
     {
-        public static decimal CalculateInlineAritmeticMath(List<object> expressionAsObjectList)
+        public static decimal CalculateInlineAritmeticMath(List<object>? expressionAsObjectList)
         {
             decimal finalResult = 0;
-            while (finalResult == 0)
+            while (expressionAsObjectList != null)
             {
                 if (expressionAsObjectList.Contains('*'))
                 {
@@ -57,6 +57,7 @@ namespace init.Ctrls
                 {
                     finalResult = Math.Round((decimal)expressionAsObjectList[0], 2);
                     Console.WriteLine("Result: " + finalResult );
+                    expressionAsObjectList = null;
                 }
             }
             return finalResult;
