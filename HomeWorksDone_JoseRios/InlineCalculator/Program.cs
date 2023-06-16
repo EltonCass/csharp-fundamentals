@@ -8,16 +8,7 @@ namespace init
     {
         public static void Main(string[] args)
         {
-            HomeWorks.PrintCalcuationHistoryTable();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Type your aritmetic operation please:");
-            Console.ResetColor();
-        
-            var input = Console.ReadLine();
-            List<object>? objs = HomeWorks.AritmeticObjectListFromInput(input);
-
-            while (objs != null)
-                objs = HomeWorks.CalculateSingleOperationObjectListBase(objs, input);
+            AppCtrl.Run();
         }
     }
 }
