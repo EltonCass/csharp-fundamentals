@@ -6,9 +6,10 @@ public class Quiz
 {
     public string Name { get; set; }
     public string Description { get; set; }
-    public HashSet<Category> Categories { get; set; }
+    public HashSet<string> Categories { get; set; }
+    public List<Question> Questions { get; set; }
 
-    public Quiz(string name, string description, HashSet<Category> categories)
+    public Quiz(string name, string description, HashSet<string> categories)
     {
         Name = name;
         Description = description;
@@ -17,18 +18,8 @@ public class Quiz
 
     public override string ToString()
     {
-        string categories = showChoice(Categories);
+        string categories = Helper.EnumerableToString(Categories);
         return "User´s name: " + Name + "\nDescription: " + Description + "\nCategories: " + categories;
-    }
-
-    private string showChoice(HashSet<Category> choices)
-    {
-        string result = string.Empty;
-        foreach (var choice in choices)
-        {
-            result = result + "\n" + choice;
-        }
-        return result;
     }
 
 }
