@@ -10,8 +10,6 @@ namespace QuizGame.Models
         public int? TotalScore { get; set; }
 
         public List<User> Users { get; set; }
-        public List<Quiz> Quizzes { get; set; }
-        public List<Question> Questions { get; set; }
 
         public Collection(string name, string description, Category category, int totalScore)
         {

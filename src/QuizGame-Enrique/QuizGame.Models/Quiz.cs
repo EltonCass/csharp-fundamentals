@@ -15,17 +15,8 @@
 
         public override string ToString()
         {
-            return "Username: " + Name + "\nDescription: " + Description + "\n Email: " + showCategories(Categories);
-        }
-
-        private string showCategories(HashSet<string> categories)
-        {
-            string result = string.Empty;
-            foreach (var category in categories)
-            {
-                result = result + "\n" + category;
-            }
-            return result;
+            string categories = Helper.CollectionToString(Categories);
+            return $"Username: {Name} \nDescription: {Description} \nCategories: {categories}";
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace QuizGame.Models
 {
-    internal class Question
+    public class Question
     {
         public string Text { get; set; }
         public List<string> Choices { get; set; }
@@ -14,18 +14,8 @@
 
         public override string ToString()
         {
-            string choices = showChoices(Choices);
-            return "Text: " + Text + "\nChoices: " + choices + "\nCorrectAnswer: " + CorrectAnswer;
-        }
-
-        private string showChoices(List<string> choices)
-        {
-            string result = string.Empty;
-            foreach (var choice in choices)
-            {
-                result = result + "\n" + choice;
-            }
-            return result;
+            string choices = Helper.CollectionToString(Choices);
+            return $"Text: { Text } \nChoices: \n{ choices }CorrectAnswer: { CorrectAnswer }";
         }
     }
 }
