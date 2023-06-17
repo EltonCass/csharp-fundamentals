@@ -1,22 +1,19 @@
-﻿using QuizGame.Models.Enums;
-
-namespace QuizGame.Models
+﻿namespace QuizGame.Models
 {
     internal class Collection
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public Category Category { get; set; }
+        public string Category { get; set; }
         public int? TotalScore { get; set; }
 
-        public List<User> Users { get; set; }
+        public List<Quiz> Quizzes { get; set; }
 
-        public Collection(string name, string description, Category category, int totalScore)
+        public Collection(string name, string description, string category)
         {
             Name = name;
             Description = description;
             Category = category;
-            TotalScore = totalScore;
         }
     }
 }
