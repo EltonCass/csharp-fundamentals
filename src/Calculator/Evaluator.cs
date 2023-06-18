@@ -8,10 +8,7 @@ namespace Calculator
 {
     public class Evaluator
     {
-        public Evaluator()
-        {
-
-        }
+        public Evaluator() { }
 
         public double EvaluateExpression(string expression)
         {
@@ -91,7 +88,14 @@ namespace Calculator
             }
             else if (lastOperator == '/')
             {
-                result /= currentNumber;
+                if (currentNumber == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+                else
+                {
+                    result /= currentNumber;
+                }
             }
             else
             {
