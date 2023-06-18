@@ -33,13 +33,15 @@ for (int i = 0; i < recordsAmount; i++)
     try
     {
         Console.Write("Enter a mathematical expression: ");
-        string expression = Console.ReadLine();
+        string? expression = Console.ReadLine();
         validator.ValidateExpression(expression);
+        Console.Write("Enter a description: ");
+        string description = Console.ReadLine();
 
         double result = evaluator.EvaluateExpression(expression);
         Console.WriteLine("Result: " + result);
 
-        Record record = new Record(result, expression, DateTime.Now);
+        Record record = new Record(result, expression, DateTime.Now, description);
         recordManager.AddRecord(record, i);
     }
     catch (InvalidExpressionException)

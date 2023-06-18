@@ -11,12 +11,14 @@ namespace Calculator
         public double Result { get; set; }
         public string Expression { get; set; }
         public DateTime Timestamp { get; set; }
+        public string? Description { get; set; }
 
-        public Record(double result, string expression, DateTime timestamp)
+        public Record(double result, string expression, DateTime timestamp, string? description)
         {
             Result = result;
             Expression = expression;
             Timestamp = timestamp;
+            Description = description;
         }
     }
 }
