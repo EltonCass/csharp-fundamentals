@@ -1,5 +1,6 @@
 ﻿using QuizzApp.FakeDB;
 using QuizzApp.Helpers;
+using QuizzApp.Interfaces;
 using QuizzApp.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace QuizzApp.Controllers
         {
             SelectionOfCollection();
             SelectionOfQuizz();
+            AnswerTheQuestions();
         }
 
         private static void InitializeQuizzCollectionMap()
@@ -48,12 +50,32 @@ namespace QuizzApp.Controllers
             string? input = InputValidator.InputWithoutNull();
             int indexQuizz = InputValidator.VerifyNumberInSelectOptions(input, SelectedCollection!.Quizzes!.Count);
             SelectedQuizz = SelectedCollection.Quizzes.ElementAt(indexQuizz - 1);
-            //////////
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(SelectedQuizz.Name);
-            Console.WriteLine(SelectedQuizz.Description);
-            Console.ResetColor();
+            UIController.PrintSelectedQuizz();
+        }
+
+        private static void AnswerTheQuestions()
+        {
+            foreach (IQuestion q in SelectedQuizz!.Questions!)
+            {
+                q.PrintQuestion();
+                string answer = InputValidator.InputWithoutNull();
+                if (typeof(QuestionMultipleChoice) == q.GetType())
+                    answer = InputValidator.VerifyMultipleChoiceInput((QuestionMultipleChoice)q, answer);
+
+                if (answer == q.CorrectAnswer)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Good (^ v ^)");
+                    Console.WriteLine("+"+q.Score+"pts earned");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("keep studying...");
+                    Console.ResetColor();
+                }
+            }
         }
     }
 }

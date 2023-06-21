@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuizzApp.FakeDB;
+using QuizzApp.Interfaces;
 
 namespace QuizzApp.Controllers
 {
@@ -41,6 +42,16 @@ namespace QuizzApp.Controllers
             Console.ResetColor();
             for(int i = 0; i < AppController.SelectedCollection?.Quizzes?.Count; i++)
                 Console.WriteLine($"[{i+1}] {AppController.SelectedCollection?.Quizzes[i].Name}");
+        }
+
+        public static void PrintSelectedQuizz()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(AppController.SelectedQuizz!.Name!);
+            Console.WriteLine(AppController.SelectedQuizz!.Description!);
+            Console.WriteLine("");
+            Console.ResetColor();
         }
     }
 }

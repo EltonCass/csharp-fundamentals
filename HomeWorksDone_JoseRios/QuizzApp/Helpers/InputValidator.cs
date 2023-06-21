@@ -49,6 +49,23 @@ namespace QuizzApp.Helpers
                      input = InputWithoutNull();
                 }
              }
-         }
+        }
+
+        public static string VerifyMultipleChoiceInput(QuestionMultipleChoice question, string input)
+        {
+            var availableOptions = new string[] { "a", "b", "c", "d" };
+            while(true)
+            {
+                if(availableOptions.Contains(input))
+                    return question.MultipleAnswersMap[input];
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Please enter a valid value [A, B, C or D]");
+                    Console.ResetColor();
+                    input = InputWithoutNull();
+                }
+            }
+        }
     }
 }
