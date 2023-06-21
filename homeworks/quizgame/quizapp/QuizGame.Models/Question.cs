@@ -2,21 +2,20 @@
 
 public class Question
 {
-    public string Text { get; set; }
-    public List<string> Choices { get; set; }
-    public string CorrectAnswer { get; set; }
+    public string Text { get; init; }
+    public string CorrectAnswer { get; init; }
+    public int Score { get; set; } = 0;
 
-    public Question(string text, List<string> choices, string correctAnswer)
+    public Question(string text, int score, string correctAnswer)
     {
+        Score = score;
         Text = text;
-        Choices = choices;
         CorrectAnswer = correctAnswer;
     }
 
     public override string ToString()
     {
-        string choices = Helper.EnumerableToString(Choices);
-        return "Text: " + Text + "\nChoices: \n" + choices + "CorrectAnswer: " + CorrectAnswer;
+        return "Text: " + Text + "CorrectAnswer: " + CorrectAnswer + "Score: " + Score;
     }
 
 }
