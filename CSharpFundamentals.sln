@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizCore", "QuizCore\QuizCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "src\Benchmarks\Benchmarks.csproj", "{F45875A3-7580-4094-9396-91F3E61416A6}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MergeSortExample", "src\MergeSortExample\MergeSortExample.fsproj", "{E1F3CA82-6C87-44AC-82D5-807B38ABD434}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{F45875A3-7580-4094-9396-91F3E61416A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F45875A3-7580-4094-9396-91F3E61416A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F45875A3-7580-4094-9396-91F3E61416A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1F3CA82-6C87-44AC-82D5-807B38ABD434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1F3CA82-6C87-44AC-82D5-807B38ABD434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1F3CA82-6C87-44AC-82D5-807B38ABD434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1F3CA82-6C87-44AC-82D5-807B38ABD434}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{D77344AC-8A41-456D-923E-2D311FAD8ED8} = {BBE894D1-5746-4764-B42A-1E68886376C5}
 		{40D4895F-6C4F-4AAF-B2F2-6BC9C7F6010C} = {612260B8-CBAA-4BE0-A7CC-A9160ACFB29D}
 		{F45875A3-7580-4094-9396-91F3E61416A6} = {BBE894D1-5746-4764-B42A-1E68886376C5}
+		{E1F3CA82-6C87-44AC-82D5-807B38ABD434} = {BBE894D1-5746-4764-B42A-1E68886376C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61EF10BE-3986-400B-B4D1-CAFB5CE5787E}
