@@ -11,6 +11,7 @@ using Fundamentals.Lesson6;
 using Fundamentals.Lesson6.Namespaces;
 using Fundamentals.Lesson7;
 using Fundamentals.Lesson8;
+using MergeSortExample;
 using System.Drawing;
 
 using var cts = new CancellationTokenSource();
@@ -34,9 +35,10 @@ Console.OutputEncoding = System.Text.Encoding.Unicode;
 // ExecuteLesson3();
 // ExecuteLesson4();
 // ExecuteLesson5();
-ExecuteLesson6();
+// ExecuteLesson6();
 // ExecuteLesson7();
-//ExecuteLesson8();
+// ExecuteLesson8();
+UseAFSharpMergeSort();
 
 Console.ReadKey();
 
@@ -182,6 +184,21 @@ static void ExecuteLesson8()
 
     "✅ Null object patterm".Dump();
     NullableObject.GetCustomers();
+}
+
+static void UseAFSharpMergeSort()
+{
+    "✅ Using FSharp algorithm".Dump();
+    var numbers = new List<int> { 5, 2, 8, 1, 9, 3, 4, 10, 11 };
+
+    // Call the MergeSort function from F# by converting the list to an F# list
+    var sortedNumbers = MergeSort.mergeSort(MergeSort.fsharpList(numbers));
+
+    // Print the sorted numbers
+    foreach (var number in sortedNumbers)
+    {
+        Console.WriteLine(number);
+    }
 }
 
 static void PrintLessonArtIntro(int lessonNumber) => Console.WriteLine(@$" Lesson {lessonNumber}
