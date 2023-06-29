@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Dumpify" Version="0.5.4" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
   </ItemGroup>
 
   <ItemGroup>

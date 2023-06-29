@@ -1,4 +1,7 @@
-﻿namespace MergeSortExample
+﻿// Copyright (c) 2023 Elton Cassas. All rights reserved.
+// See LICENSE.txt
+
+namespace MergeSortExample
 open Microsoft.FSharp.Collections
 
 module MergeSort =
