@@ -7,12 +7,14 @@ global using Fundamentals.Lesson4;
 global using Fundamentals.Lesson5;
 using Dumpify;
 using Dumpify.Config;
+using Fundamentals.GarbageCollections;
 using Fundamentals.Lesson6;
 using Fundamentals.Lesson6.Namespaces;
 using Fundamentals.Lesson7;
 using Fundamentals.Lesson8;
 using MergeSortExample;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 using var cts = new CancellationTokenSource();
 
@@ -38,7 +40,8 @@ Console.OutputEncoding = System.Text.Encoding.Unicode;
 // ExecuteLesson6();
 // ExecuteLesson7();
 // ExecuteLesson8();
-UseAFSharpMergeSort();
+// UseAFSharpMergeSort();
+UnmanagedCode();
 
 Console.ReadKey();
 
@@ -199,6 +202,33 @@ static void UseAFSharpMergeSort()
     {
         Console.WriteLine(number);
     }
+}
+
+[DllImport("user32.dll")]
+static extern int MessageBox(IntPtr hWnd, string text, string caption, int options);
+
+static void UnmanagedCode()
+{
+    //Unmanaged Code
+    //MessageBox(IntPtr.Zero, "Hello, World!", "Message", 0);
+
+    //// Disposable wrapper
+    //using (var messageBox = new UnmanagedCodeWrapper("Hello, World!", "Message"))
+    //{
+    //    // Use the MessageBoxWrapper
+    //}
+
+    // Using GC manually
+    ManagedResource.CreatedMultiple();
+    ManualGCTrigger.RunCollection();
+
+    ManagedResource.CreatedMultiple(100000);
+    ManualGCTrigger.RunGen2Collection();
+
+    //using (var connection = new DatabaseConnection("connectionString"))
+    //{
+    //    //Execute SQL like connection.ExecuteQuery("SELECT * FROM Customers");
+    //}
 }
 
 static void PrintLessonArtIntro(int lessonNumber) => Console.WriteLine(@$" Lesson {lessonNumber}
