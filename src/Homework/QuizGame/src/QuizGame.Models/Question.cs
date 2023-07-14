@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 
 namespace QuizGame.Models
 {
-    internal class Question
+    internal record Question
     {
-        public string Text { get; set; }
-        public List<string> AnswerChoices { get; set; }
-        public string CorrectAnswer { get; set; }
+        public string Text { get; init; }
+        public string CorrectAnswer { get; init; }
+        public int Points { get; init; }
 
-        public Question(string text, List<string> answerChoices, string correctAnswer)
+        public Question(string text ,string correctAnswer, int points)
         {
             Text = text;
-            AnswerChoices = answerChoices;
             CorrectAnswer = correctAnswer;
+            Points = points;
         }
 
         public override string ToString()
         {
-            string answerChoices = string.Join(", ", AnswerChoices);
-            return  $"Question: {Text}\nAnswer Choices: {answerChoices}\nCorrect Answer: {CorrectAnswer}";
+            return  $"Question: {Text}\nCorrect Answer: {CorrectAnswer}<";
         }
     }
 }

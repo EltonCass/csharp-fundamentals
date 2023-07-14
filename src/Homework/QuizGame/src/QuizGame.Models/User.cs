@@ -13,7 +13,7 @@ namespace QuizGame.Models
         public string Score { get; set; }
         public EmailAddressAttribute Email { get; set; }
 
-        public User(string name, string score, EmailAddressAttribute email,)
+        public User(string name, string score, EmailAddressAttribute email)
         {
             Name = name;
             Score = score;

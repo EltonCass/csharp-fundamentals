@@ -10,11 +10,11 @@ namespace QuizGame.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Category { get; set; }
-        public double TotalScore { get; set; }
+        public Category Category { get; set; }
+        public int TotalScore { get; set; }
         public List<Quiz> Quizzes { get; set; }
 
-        public Collection(string name, string description, string category, List<Quiz> quizzes)
+        public Collection(string name, string description, Category category, List<Quiz> quizzes)
         {
             Name = name;
             Description = description;

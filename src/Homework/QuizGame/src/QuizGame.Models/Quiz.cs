@@ -10,15 +10,17 @@ namespace QuizGame.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public HashSet<string> Categories { get; set; }
+        public HashSet<Category> Categories { get; set; }
         public List<Question> Questions { get; set; }
+        public int Score { get; set; }
 
-        public Quiz(string name, string description, HashSet<string> categories, List<Question> questions)
+        public Quiz(string name, string description, HashSet<Category> categories, List<Question> questions)
         {
             Name = name;
             Description = description;
             Categories = categories;
             Questions = questions;
+            Score = 0;
         }
 
         public override string ToString()
